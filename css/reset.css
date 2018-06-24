@@ -2,7 +2,7 @@ body {
     position: relative;
     border: 1px solid #ccc;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    max-width: 720px;
+    /* max-width: 720px; */
     margin: 0 auto;
 }
 body,
