@@ -11,34 +11,36 @@ body {
 .header .address-s {
     width: 80%;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-family: "微软雅黑";
     color: #fff;
     position: relative;
-    text-align: center;
+    padding-left: 1rem;
 }
 .header .address-s .pic {
     display: block;
-    width: 0.8rem;
-    height: 1rem;
+    width: 0.7rem;
+    height: 0.8rem;
     position: absolute;
-    top: 0.5rem;
+    top: 0.6rem;
     left: -0.5rem;
     background: url(../images/jt.png) no-repeat;
     background-size: 100% 100%;
 } 
-/* .address-s:after {
-    content: "";
+.header .btn-b {
     position: absolute;
-    top: 0;
-    left: 0.7rem;
-    margin-right: 0.3rem;
-    display: block;
-    font-family: 'YDUI-INLAY';
-    font-size: 0.34rem;
-    color: #C9C9C9;
-    content: '\e608';
-} */
+    top: 0.65rem;
+    right: 0.9rem;
+    color: #fff;
+    background: #9d4949;
+    font-size: 0.6rem;
+    font-weight: 700;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 5%;
+    cursor: pointer;
+    margin: 0 auto;
+}
 .g-flexview {
     background: #fff;
 }
