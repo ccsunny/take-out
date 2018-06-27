@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>手机端收货地址选择</title>
+<link href="favicon1.ico" type="image/x-icon" rel="shortcut icon" />
+<title>map</title>
 <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -13,8 +14,9 @@
 </head>
 <body>
 <div class="header">
-	<p class="address-s"><span class="pic"></span>地址选择</p>
-	<input class="btn-b" type="button" value="确定">
+	<p class="address-s"><a href="address1.html"><span class="pic"></span></a>地址选择</p>
+	<!-- <input id="btn-d" class="btn-b" type="button" onclick="javascrtpt:window.location.href='menu.html'" value="确定"> -->
+	<input id="btn-d" class="btn-b" type="button"value="确定">
 </div>
 <section class="g-flexview">
     <section class="g-scrollview">
@@ -22,46 +24,40 @@
             <div class="cell-item">
                 <div class="cell-left">所在地区：</div>
                 <div class="cell-right cell-arrow">
-                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择收货地址">
+                    <input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择所属地区" name="city">
                 </div>
             </div>
         </div>
         <div class="m-cell">
             <div class="cell-item">
-                <div class="cell-left">所在地区：</div>
-                <div class="cell-right cell-arrow">
-                    <input type="text" class="cell-input" readonly id="J_Address2" value="新疆 乌鲁木齐市 天山区" placeholder="请选择收货地址">
-                </div>
-            </div>
-		</div>
-        <div class="m-cell">
-            <div class="cell-item">
                 <div class="cell-left">详细地址:</div>
                 <div class="cell-right">
-                    <input type="text" class="detail" placeholder="请填写详细地址">
+                    <input id="datail-a" type="text" placeholder="请填写详细地址" name="detail">
                 </div>
             </div>
-		</div>
+        </div>
+        <div class="show-t">
+            <p class="sel">亲,请选择您的所属地区</p>
+            <p class="detail-n">亲,请输入您的详细地址</p>
+        </div>
     </section>
 </section>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/ydui.citys.js"></script>
 <script type="text/javascript" src="js/ydui.js"></script>
 <script src="./js/common.js"></script>
+<!-- <script src="./js/index.js"></script> -->
 <script type="text/javascript">
 /**
  * 默认调用
  */
 !function () {
 	var $target = $('#J_Address');
-
 	$target.citySelect();
-
 	$target.on('click', function (event) {
 		event.stopPropagation();
 		$target.citySelect('open');
 	});
-
 	$target.on('done.ydui.cityselect', function (ret) {
 		$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
 	});
@@ -70,22 +66,23 @@
  * 设置默认值
  */
 !function () {
-	var $target = $('#J_Address2');
-
-	$target.citySelect({
-		provance: '新疆',
-		city: '乌鲁木齐市',
-		area: '天山区'
-	});
-
-	$target.on('click', function (event) {
-		event.stopPropagation();
-		$target.citySelect('open');
-	});
-
-	$target.on('done.ydui.cityselect', function (ret) {
-		$(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
-	});
+	$(document).ready(function(){
+        $("#btn-d").click(function(){
+            var addr = $("#J_Address").val();
+            var det = $("#datail-a").val();
+            if(addr == ""){
+                $(".sel").show();
+            }else{
+                $(".sel").remove();
+            }
+            if(det == ""){
+                $(".detail-n").show();
+            }else{
+                $(".detail-n").remove();
+                $(location).attr("href","menu.html");
+            }
+        });
+    });
 }();
 </script>
 </div>
